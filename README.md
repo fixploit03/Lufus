@@ -22,6 +22,13 @@ Lufus</h1>
 
 `Lufus` adalah sebuah script Bash untuk membuat Bootable USB di Linux. Script ini memungkinkan Anda untuk memilih perangkat USB dan file ISO untuk di-flash ke perangkat USB, sehingga Anda dapat membuat USB yang dapat digunakan untuk menginstal atau menjalankan Linux.
 
+## Persyaratan
+
+- Sistem operasi Linux
+- Hak akses root / sudo
+- Perangkat USB yang akan dijadikan bootable
+- File ISO Linux
+
 ## Cara Instal
 
 Buka terminal Linux, ketikkan perintah berikut ini:
@@ -36,9 +43,21 @@ chmod +x lufus.sh
 sudo ./lufus.sh
 ```
 
+## Cara Penggunaan
+
+1. Jalankan script dengan perintah `sudo ./lufus.sh`
+2. Script akan mendeteksi dan menampilkan semua perangkat penyimpanan yang terpasang
+3. Masukkan nama perangkat USB Anda (contoh: `/dev/sdb`)
+4. Masukkan path lengkap ke file ISO yang ingin di-flash
+5. Konfirmasi pilihan Anda dengan mengetik `iya`
+6. Tunggu proses flashing selesai
+7. Perangkat USB bootable Anda siap digunakan!
+
+> Peringatan: Semua data pada perangkat USB target akan dihapus selama proses ini. Pastikan untuk mencadangkan data penting sebelum menggunakan Lufus.
+
 ## Demonstrasi
 
-[Link YT]()
+[Link YT (Next)]()
 
 ## Lisensi
 
