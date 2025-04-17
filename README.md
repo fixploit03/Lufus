@@ -6,6 +6,14 @@ Lufus</h1>
   <span>Bootable USB Creator for Linux</span>
 </p>
 
+<p align="center">
+  <a href="https://github.com/fixploit03/Lufus#apa-itu-lufus">Apa itu Lufus?</a>
+  &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="https://github.com/fixploit03/Lufus#cara-instal">Cara Instal</a>
+  &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="https://github.com/martin-olivier/airgorah/wiki/Credits">Lisensi</a>
+</p>
+
 ## Apa itu Lufus?
 
 [![Platform](https://img.shields.io/badge/Platform-Linux-yellow?logo=linux)](https://www.kernel.org/)
