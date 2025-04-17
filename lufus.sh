@@ -22,6 +22,7 @@ h="\e[1;32m"   # Hijau
 b="\e[1;34m"   # Biru
 p="\e[1;37m"   # Putih
 r="\e[0m"      # Reset
+ik=$'\e[1;33m' # Input kuning
 ib=$'\e[1;34m' # Input biru
 ip=$'\e[1;37m' # Input putih
 ir=$'\e[0,'    # Input reset
@@ -65,7 +66,7 @@ function deteksi_usb(){
 # Fungsi untuk input perangkat usb yang mau dijadikan Bootable (OK)
 function input_perangkat_usb(){
 	while true; do
-		read -p "${ib}[#] ${ip}Masukkan nama perangkat USB (contoh: /dev/sdb): " perangkat_usb
+		read -p "${ik}[#] ${ip}Masukkan nama perangkat USB (contoh: /dev/sdb): " perangkat_usb
 		if [[ -z "${perangkat_usb}" ]]; then
 			echo -e "${m}[-] ${p}Nama perangkat USB tidak boleh kosong.${r}"
 			continue
@@ -87,7 +88,7 @@ function input_perangkat_usb(){
 # Fungsi untuk input file ISO yang mau di flash (OK)
 function input_file_iso(){
 	while true; do
-		read -p "${ib}[#] ${ip}Masukkan path file ISO Linux (contoh: /home/user/ubuntu.iso): " file_iso
+		read -p "${ik}[#] ${ip}Masukkan path file ISO Linux (contoh: /home/user/ubuntu.iso): " file_iso
 		file_iso=$(echo "${file_iso}" | sed -e "s/^[ \t]*//" -e "s/[ \t]*$//" -e "s/^['\"]//" -e "s/['\"]$//")
 		if [[ -z "${file_iso}" ]]; then
 			echo -e "${m}[-] ${p}Path file ISO tidak boleh kosong.${r}"
@@ -123,7 +124,7 @@ function mengonfirmasi(){
 	echo ""
 
 	while true; do
-		read -p "${ib}[#] ${ip}Apakah Anda ingin melanjutkannya (iya/tidak): " konfirmasi
+		read -p "${ik}[#] ${ip}Apakah Anda ingin melanjutkannya (iya/tidak): " konfirmasi
 		if [[ "${konfirmasi}" == "iya" ]]; then
 			:
 			break
@@ -139,6 +140,15 @@ function mengonfirmasi(){
 
 # Fungsi untuk membuat Bootable USB (OK)
 function buat_bootable(){
+	# echo -e "${b}[*] ${p}Meng-unmount perangkat USB '${perangkat_usb}'...${r}"
+	# sleep 3
+	# umount "${perangkat_usb}"*
+	# if [[ $? -eq 0 ]]; then
+	#	echo -e "${h}[+] ${p}Perangkat USB '${perangkat_usb}' berhasil di-unmount.${r}"
+	# else
+	#	echo -e "${m}[-] ${p}Gagal meng-unmount perangkat USB '${perangkat_usb}'.${r}"
+	#	exit 1
+	# fi
 	echo -e "${b}[*] ${p}Memformat perangkat USB '${perangkat_usb}'...${r}"
 	sleep 3
 	wipefs -a "${perangkat_usb}"
@@ -154,6 +164,15 @@ function buat_bootable(){
 	dd if="${file_iso}" of="${perangkat_usb}" bs=4M status=progress oflag=sync
 	if [[ $? -eq 0 ]]; then
 		echo -e "${h}[+] ${p}Proses flashing selesai.${r}"
+		echo -e "${b}[*] ${p}Meng-eject perangkat USB '${perangkat_usb}'...${r}"
+		sleep 3
+		eject "${perangkat_usb}"
+		if [[ $? -eq 0 ]]; then
+    			echo -e "${h}[+] ${p}Perangkat USB '${perangkat_usb}' berhasil di-eject.${r}"
+		else
+    			echo -e "${m}[-] ${p}Gagal meng-eject perangkat USB '${perangkat_usb}'.${r}"
+    			exit 1
+		fi
 		echo -e "${h}[+] ${p}Bootable USB berhasil dibuat dan siap digunakan.${r}"
 		echo ""
 		echo -e "${b}[*] ${p}Terima kasih telah menggunakan ${program} :)${r}"
@@ -173,4 +192,3 @@ input_perangkat_usb
 input_file_iso
 mengonfirmasi
 buat_bootable
-
