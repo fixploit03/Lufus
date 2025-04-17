@@ -42,4 +42,4 @@ sudo ./lufus.sh
 
 ## Lisensi
 
-Script ini merupakan perangkat lunak open-source dan dapat digunakan, dimodifikasi, serta didistribusikan secara gratis.
+Script ini dilisensikan dibawah [Lisensi MIT](https://github.com/fixploit03/Lufus/blob/main/LICENSE).
