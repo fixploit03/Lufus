@@ -22,11 +22,11 @@ Lufus</h1>
 [![Bahasa](https://img.shields.io/badge/Bahasa-Bash-green?logo=gnu-bash)](https://www.gnu.org/software/bash/)
 [![Lisensi](https://img.shields.io/badge/Lisensi-MIT-lightgreen?logo=open-source-initiative)](https://github.com/fixploit03/Lufus/blob/main/LICENSE)
 
-![Screenshot Lufus](https://github.com/fixploit03/Lufus/blob/main/Screenshot%20Lufus.png)
+
 
 `Lufus` adalah sebuah script Bash untuk membuat Bootable USB di Linux. Script ini memungkinkan Anda untuk memilih perangkat USB dan file ISO untuk di-flash ke perangkat USB, sehingga Anda dapat membuat USB yang dapat digunakan untuk menginstal atau menjalankan Linux.
 
-> Lufus hanya mendukung pembuatan USB bootable untuk Linux, tidak untuk Windows.
+> Lufus tidak mendukung pembuatan USB bootable untuk sistem operasi Windows.
 
 ## Persyaratan
 
@@ -68,7 +68,7 @@ Ikuti langkah-langkah atau instruksi yang diberikan.
 
 Untuk video demonstrasinya ada di YouTube.
 
-Link: [https://youtu.be/UOripmLGgdk?si=kNYj6jLK1mLiCEE4](https://youtu.be/UOripmLGgdk?si=kNYj6jLK1mLiCEE4)
+Link: [https://youtu.be/UOripmLGgdk?si=kNYj6jLK1mLiCEE4](https://www.youtube.com/watch?v=iXv_Q1QwA2M)
 
 ## Lisensi
 
