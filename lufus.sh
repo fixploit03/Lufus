@@ -105,26 +105,21 @@ function input_file_iso(){
 		echo -e "${b}[*] ${p}Mengecek isi file ISO '${file_iso}'...${r}"
 		sleep 3
 
-		installer_windows=(
-			"bootmgr"
-        		"sources/install.wim"
-		        "sources/install.esd"
-		        "setup.exe"
-		)
-
+		installer_windows="setup.exe"
 		apakah_windows=0
 
-		for installer in "${installer_windows[@]}"; do
-			if 7z l "${file_iso}" | grep -i "${installer}" >/dev/null; then
+		if 7z l "${file_iso}" | grep -i "${installer_windows}" >/dev/null; then
 				apakah_windows=1
-			fi
-		done
+		fi
 
 		if [[ "${apakah_windows}" -eq 1 ]]; then
 			echo -e "${m}[-] ${p}Fiso ISO '${file_iso}' adalah file ISO Windows.${r}"
 			echo -e "${m}[-] ${p}${program} tidak mendukung pembuatan USB bootable untuk sistem operasi Windows.${r}"
 			continue
+		else
+			echo -e "${h}[+] ${p}File ISO '${file_iso}' bukan file ISO Windows.${r}"
 		fi
+
 		echo -e "${h}[+] ${p}File ISO '${file_iso}' ditemukan.${r}"
 		break
 	done
