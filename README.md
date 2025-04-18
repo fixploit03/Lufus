@@ -11,6 +11,8 @@ Lufus</h1>
   &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="https://github.com/fixploit03/Lufus#cara-instal">Cara Instal</a>
   &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="https://github.com/fixploit03/Lufus/blob/main/LICENSE">Cara Penggunaan</a>
+  &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="https://github.com/fixploit03/Lufus/blob/main/LICENSE">Lisensi</a>
 </p>
 
@@ -19,6 +21,8 @@ Lufus</h1>
 [![Platform](https://img.shields.io/badge/Platform-Linux-yellow?logo=linux)](https://www.kernel.org/)
 [![Bahasa](https://img.shields.io/badge/Bahasa-Bash-green?logo=gnu-bash)](https://www.gnu.org/software/bash/)
 [![Lisensi](https://img.shields.io/badge/Lisensi-MIT-lightgreen?logo=open-source-initiative)](https://github.com/fixploit03/Lufus/blob/main/LICENSE)
+
+![Screenshot Lufus](https://github.com/fixploit03/Lufus/blob/main/Screenshot%20Lufus.png)
 
 `Lufus` adalah sebuah script Bash untuk membuat Bootable USB di Linux. Script ini memungkinkan Anda untuk memilih perangkat USB dan file ISO untuk di-flash ke perangkat USB, sehingga Anda dapat membuat USB yang dapat digunakan untuk menginstal atau menjalankan Linux.
 
@@ -40,8 +44,21 @@ cd ~/Desktop
 git clone https://github.com/fixploit03/Lufus.git
 cd Lufus
 chmod +x lufus.sh
+```
+
+## Cara Penggunaan
+
+Buka terminal Linux, ketikkan perintah berikut ini:
+
+```
 sudo ./lufus.sh
 ```
+
+Ikuti langkah-langkah atau instruksi yang diberikan.
+
+> #### Peringatan
+>
+> Semua data pada perangkat USB akan dihapus! Pastikan Anda telah melakukan backup sebelum melanjutkan.
 
 ## Demonstrasi
 
