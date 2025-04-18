@@ -9,14 +9,14 @@
 #
 #----------------------------------------------
 
-# Tentang sscript
+# Tentang sscript (OK)
 program="Lufus"
 deskripsi="Bootable USB Creator for Linux"
 versi="v1.0"
 pembuat="Rofi (Fixploit03)"
 github="https://github.com/fixploit03/Lufus"
 
-# Variabel warna
+# Variabel warna (OK)
 m="\e[1;31m"   # Merah
 h="\e[1;32m"   # Hijau
 b="\e[1;34m"   # Biru
@@ -140,15 +140,10 @@ function mengonfirmasi(){
 
 # Fungsi untuk membuat Bootable USB (OK)
 function buat_bootable(){
-	# echo -e "${b}[*] ${p}Meng-unmount perangkat USB '${perangkat_usb}'...${r}"
-	# sleep 3
-	# umount "${perangkat_usb}"*
-	# if [[ $? -eq 0 ]]; then
-	#	echo -e "${h}[+] ${p}Perangkat USB '${perangkat_usb}' berhasil di-unmount.${r}"
-	# else
-	#	echo -e "${m}[-] ${p}Gagal meng-unmount perangkat USB '${perangkat_usb}'.${r}"
-	#	exit 1
-	# fi
+	# Meng-unmount jika ada partisi yang ter-mount (terpasang)
+	if findmnt | grep -q "${perangkat_usb}"; then
+            	umount "${perangkat_usb}"* &>/dev/null
+	fi
 	echo -e "${b}[*] ${p}Memformat perangkat USB '${perangkat_usb}'...${r}"
 	sleep 3
 	wipefs -a "${perangkat_usb}"
