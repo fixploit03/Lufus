@@ -1,4 +1,4 @@
-#!/bin/bash
+!/bin/bash
 #----------------------------------------------
 #
 #.......: Lufus
@@ -102,6 +102,29 @@ function input_file_iso(){
 			echo -e "${m}[-] ${p}File '${file_iso}' bukan file ISO.${r}"
 			continue
 		fi
+		echo -e "${b}[*] ${p}Mengecek isi file ISO '${file_iso}'...${r}"
+		sleep 3
+
+		installer_windows=(
+			"bootmgr"
+        		"sources/install.wim"
+		        "sources/install.esd"
+		        "setup.exe"
+		)
+
+		apakah_windows=0
+
+		for installer in "${installer_windows[@]}"; do
+			if 7z l "${file_iso}" | grep -i "${installer}" >/dev/null; then
+				apakah_windows=1
+			fi
+		done
+
+		if [[ "${apakah_windows}" -eq 1 ]]; then
+			echo -e "${m}[-] ${p}Fiso ISO '${file_iso}' adalah file ISO Windows.${r}"
+			echo -e "${m}[-] ${p}${program} tidak mendukung pembuatan USB bootable untuk sistem operasi Windows.${r}"
+			continue
+		fi
 		echo -e "${h}[+] ${p}File ISO '${file_iso}' ditemukan.${r}"
 		break
 	done
@@ -156,7 +179,7 @@ function buat_bootable(){
 	fi
 	echo -e "${b}[*] ${p}Memulai proses flashing ISO '${file_iso}' ke perangkat USB '${perangkat_usb}'...${r}"
 	sleep 3
-	dd if="${file_iso}" of="${perangkat_usb}" bs=4M status=progress oflag=sync
+	pv "${file_iso}" | dd of="${perangkat_usb}" bs=4M oflag=sync
 	if [[ $? -eq 0 ]]; then
 		echo -e "${h}[+] ${p}Proses flashing selesai.${r}"
 		echo -e "${b}[*] ${p}Meng-eject perangkat USB '${perangkat_usb}'...${r}"
