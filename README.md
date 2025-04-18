@@ -64,12 +64,6 @@ Ikuti langkah-langkah atau instruksi yang diberikan.
 >
 > Semua data pada perangkat USB akan dihapus! Pastikan Anda telah melakukan backup sebelum melanjutkan.
 
-## Demonstrasi
-
-Untuk video demonstrasinya ada di YouTube.
-
-Link: [https://youtu.be/UOripmLGgdk?si=kNYj6jLK1mLiCEE4](https://www.youtube.com/watch?v=iXv_Q1QwA2M)
-
 ## Lisensi
 
 Script ini dilisensikan dibawah [Lisensi MIT](https://github.com/fixploit03/Lufus/blob/main/LICENSE).
