@@ -62,7 +62,9 @@ Ikuti langkah-langkah atau instruksi yang diberikan.
 
 ## Demonstrasi
 
-[Link YT (Next)]()
+Untuk video demonstrasinya ada di YouTube.
+
+Link: [https://youtu.be/UOripmLGgdk?si=kNYj6jLK1mLiCEE4](https://youtu.be/UOripmLGgdk?si=kNYj6jLK1mLiCEE4)
 
 ## Lisensi
 
