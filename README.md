@@ -43,18 +43,6 @@ chmod +x lufus.sh
 sudo ./lufus.sh
 ```
 
-## Cara Penggunaan
-
-1. Jalankan script dengan perintah `sudo ./lufus.sh`
-2. Script akan mendeteksi dan menampilkan semua perangkat penyimpanan yang terpasang
-3. Masukkan nama perangkat USB Anda (contoh: `/dev/sdb`)
-4. Masukkan path lengkap ke file ISO yang ingin di-flash
-5. Konfirmasi pilihan Anda dengan mengetik `iya`
-6. Tunggu proses flashing selesai
-7. Perangkat USB bootable Anda siap digunakan!
-
-> Peringatan: Semua data pada perangkat USB target akan dihapus selama proses ini. Pastikan untuk mencadangkan data penting sebelum menggunakan Lufus.
-
 ## Demonstrasi
 
 [Link YT (Next)]()
