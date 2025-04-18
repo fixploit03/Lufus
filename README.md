@@ -11,7 +11,7 @@ Lufus</h1>
   &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="https://github.com/fixploit03/Lufus#cara-instal">Cara Instal</a>
   &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="https://github.com/fixploit03/Lufus/blob/main/LICENSE">Cara Penggunaan</a>
+  <a href="https://github.com/fixploit03/Lufus#cara-penggunaan">Cara Penggunaan</a>
   &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="https://github.com/fixploit03/Lufus/blob/main/LICENSE">Lisensi</a>
 </p>
