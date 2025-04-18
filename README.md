@@ -41,6 +41,8 @@ Buka terminal Linux, ketikkan perintah berikut ini:
 
 ```
 sudo apt-get update -y
+sudo apt install pv
+sudo apt-get install p7zip-full
 sudo apt-get install git -y
 cd ~/Desktop
 git clone https://github.com/fixploit03/Lufus.git
