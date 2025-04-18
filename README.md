@@ -26,6 +26,8 @@ Lufus</h1>
 
 `Lufus` adalah sebuah script Bash untuk membuat Bootable USB di Linux. Script ini memungkinkan Anda untuk memilih perangkat USB dan file ISO untuk di-flash ke perangkat USB, sehingga Anda dapat membuat USB yang dapat digunakan untuk menginstal atau menjalankan Linux.
 
+> Lufus hanya mendukung pembuatan USB bootable untuk Linux, tidak untuk Windows.
+
 ## Persyaratan
 
 - Sistem operasi Linux
