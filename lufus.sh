@@ -25,7 +25,6 @@ r="\e[0m"      # Reset
 ik=$'\e[1;33m' # Input kuning
 ib=$'\e[1;34m' # Input biru
 ip=$'\e[1;37m' # Input putih
-ir=$'\e[0,'    # Input reset
 
 # Fungsi untuk cek root (OK)
 function cek_root(){
@@ -113,7 +112,7 @@ function input_file_iso(){
 		fi
 
 		if [[ "${apakah_windows}" -eq 1 ]]; then
-			echo -e "${m}[-] ${p}Fiso ISO '${file_iso}' adalah file ISO Windows.${r}"
+			echo -e "${m}[-] ${p}File ISO '${file_iso}' adalah file ISO Windows.${r}"
 			echo -e "${m}[-] ${p}${program} tidak mendukung pembuatan USB bootable untuk sistem operasi Windows.${r}"
 			continue
 		else
