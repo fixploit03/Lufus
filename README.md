@@ -69,7 +69,7 @@ $ sudo ./lufus.sh
 
 Ikuti langkah-langkah atau instruksi yang diberikan.
 
-> #### Peringatan
+> **Peringatan**
 >
 > Semua data pada perangkat USB akan dihapus! Pastikan Anda telah melakukan backup sebelum melanjutkan.
 
