@@ -40,14 +40,23 @@ Lufus</h1>
 Buka terminal Linux, ketikkan perintah berikut ini:
 
 ```
-sudo apt-get update -y
-sudo apt install pv
-sudo apt-get install p7zip-full
-sudo apt-get install git -y
-cd ~/Desktop
-git clone https://github.com/fixploit03/Lufus.git
-cd Lufus
-chmod +x lufus.sh
+# Update repositori Linux
+$ sudo apt-get update -y
+
+# Instal dependensi yang diperlukan
+$ sudo apt install bash parted util-linux e2fsprogs coreutils eject pv git -y
+
+# Pindah ke direktori Desktop
+$ cd ~/Desktop
+
+# Kloning repositori Lufus dari Github
+$ git clone https://github.com/fixploit03/Lufus.git
+
+# Pindah ke direktori Lufus
+$ cd Lufus
+
+# Berikan izin eksekusi terhadap script
+$ chmod +x lufus.sh
 ```
 
 ## Cara Penggunaan
@@ -55,7 +64,7 @@ chmod +x lufus.sh
 Buka terminal Linux, ketikkan perintah berikut ini:
 
 ```
-sudo ./lufus.sh
+$ sudo ./lufus.sh
 ```
 
 Ikuti langkah-langkah atau instruksi yang diberikan.
