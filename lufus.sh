@@ -3,13 +3,21 @@
 #
 #.......: Lufus
 #.......: Bootable USB Creator for Linux
+#.......: v1.0
+#
+# ---------------------------------------------
+#
+# Dibuat oleh: Rofi (Fixploit03)
+# Github: https://github.com/fixploit03/Lufus
+#
+# ---------------------------------------------
 #
 # Script ini dibuat menggunakan <3 dan kopi.
-# Script ini Open Source (Alias grtatis)
+# Script ini Open Source (Alias gratis)
 #
 #----------------------------------------------
 
-# Tentang sscript (OK)
+# Tentang script (OK)
 program="Lufus"
 deskripsi="Bootable USB Creator for Linux"
 versi="v1.0"
@@ -39,11 +47,13 @@ function cek_root(){
 function banner(){
 	clear
 	echo -e "${b}+=========================================================+${r}"
+	echo -e "${b}|                                                         |${r}"
 	echo -e "${b}|       ${p}${program}                                             ${b}|${r}"
 	echo -e "${b}|       ${p}${deskripsi}                    ${b}|${r}"
 	echo -e "${b}|       ${p}Versi: ${versi}                                       ${b}|${r}"
 	echo -e "${b}|       ${p}Dibuat oleh: ${pembuat}                    ${b}|${r}"
 	echo -e "${b}|       ${p}Github: ${github}       ${b}|${r}"
+	echo -e "${b}|                                                         |${r}"
 	echo -e "${b}+=========================================================+${r}"
 	echo
 }
@@ -56,13 +66,15 @@ function deteksi_usb(){
 	echo ""
 	parted -l
 	echo -e "${m}+==============================================================+${r}"
+	echo -e "${m}|                                                              |${r}"
 	echo -e "${m}|       ${p}Perhatikan nama perangkat USB (contoh: /dev/sdb)       ${m}|${r}"
 	echo -e "${m}|       ${p}Jangan pilih perangkat USB yang berisi sistem          ${m}|${r}"
+	echo -e "${m}|                                                              |${r}"
 	echo -e "${m}+==============================================================+${r}"
 	echo ""
 }
 
-# Fungsi untuk input perangkat usb yang mau dijadikan Bootable (OK)
+# Fungsi untuk input perangkat USB yang mau dijadikan Bootable (OK)
 function input_perangkat_usb(){
 	while true; do
 		read -p "${ik}[#] ${ip}Masukkan nama perangkat USB (contoh: /dev/sdb): " perangkat_usb
@@ -71,37 +83,37 @@ function input_perangkat_usb(){
 			continue
 		fi
 		if [[ ! -e "${perangkat_usb}" ]]; then
-			echo -e "${m}[-] ${p}Perangkat USB '${perangkat_usb}' tidak ditemukan.${r}"
+			echo -e "${m}[-] ${p}Perangkat USB tidak ditemukan.${r}"
 			continue
 		fi
 		if [[ "${perangkat_usb}" == *"sda"* ]] || [[ "${perangkat_usb}" == *"nvme0n1"* ]]; then
-			echo -e "${m}[-] ${p}Perangkat USB '${perangkat_usb}' mungkin berisi sistem.${r}"
+			echo -e "${m}[-] ${p}Perangkat USB mungkin berisi sistem.${r}"
 			echo -e "${m}[-] ${p}Sangat berbahaya untuk menimpa perangkat ini.${r}"
 			continue
 		fi
-		echo -e "${h}[+] ${p}Perangkat USB '${perangkat_usb}' ditemukan.${r}"
+		echo -e "${h}[+] ${p}Perangkat USB ditemukan.${r}"
 		break
 	done
 }
 
-# Fungsi untuk input file ISO yang mau di flash (OK)
+# Fungsi untuk input file ISO yang mau di-flash (OK)
 function input_file_iso(){
 	while true; do
-		read -p "${ik}[#] ${ip}Masukkan path file ISO Linux (contoh: /home/user/ubuntu.iso): " file_iso
+		read -p "${ik}[#] ${ip}Masukkan path file ISO Linux: " file_iso
 		file_iso=$(echo "${file_iso}" | sed -e "s/^[ \t]*//" -e "s/[ \t]*$//" -e "s/^['\"]//" -e "s/['\"]$//")
 		if [[ -z "${file_iso}" ]]; then
 			echo -e "${m}[-] ${p}Path file ISO tidak boleh kosong.${r}"
 			continue
 		fi
 		if [[ ! -f "${file_iso}" ]]; then
-			echo -e "${m}[-] ${p}File ISO '${file_iso}' tidak ditemukan.${r}"
+			echo -e "${m}[-] ${p}File ISO tidak ditemukan.${r}"
 			continue
 		fi
 		if [[ "${file_iso##*.}" != "iso" ]]; then
-			echo -e "${m}[-] ${p}File '${file_iso}' bukan file ISO.${r}"
+			echo -e "${m}[-] ${p}File bukan file ISO.${r}"
 			continue
 		fi
-		echo -e "${h}[+] ${p}File ISO '${file_iso}' ditemukan.${r}"
+		echo -e "${h}[+] ${p}File ISO ditemukan.${r}"
 		break
 	done
 
@@ -110,12 +122,12 @@ function input_file_iso(){
 # Fungsi untuk konfirmasi apakah mau melanjutkan atau tidak (OK)
 function mengonfirmasi(){
 	echo ""
-	echo -e "${m}+====================================================================+${r}"
-	echo -e "${m}|                                                                    |${r}"
-	echo -e "${m}|       ${p}Semua data pada perangkat USB '${perangkat_usb}' akan dihapus.       ${m}|${r}"
-	echo -e "${m}|                                                                    |${r}"
-	echo -e "${m}+====================================================================+${r}"
-	echo 
+	echo -e "${m}+========================================================+${r}"
+	echo -e "${m}|                                                        |${r}"
+	echo -e "${m}|       ${p}Semua data pada perangkat USB akan dihapus       ${m}|${r}"
+	echo -e "${m}|                                                        |${r}"
+	echo -e "${m}+========================================================+${r}"
+	echo ""
 	echo -e "${p}Informasi pembuatan Bootable USB:${r}"
 	echo ""
 	echo -e "${h}[+] ${p}Perangkat USB: ${perangkat_usb}${r}"
@@ -131,7 +143,7 @@ function mengonfirmasi(){
 			echo -e "${m}[-] ${p}Proses membuat Bootable USB dibatalkan.${r}"
 			exit 0
 		else
-			echo -e "${m}[-] ${p}Masukkan tidak valid. harap masukkan 'iya/tidak'.${r}"
+			echo -e "${m}[-] ${p}Masukkan tidak valid. Harap masukkan 'iya/tidak'.${r}"
 			continue
 		fi
 	done
@@ -143,28 +155,29 @@ function buat_bootable(){
 	if findmnt | grep -q "${perangkat_usb}"; then
             	umount "${perangkat_usb}"* &>/dev/null
 	fi
-	echo -e "${b}[*] ${p}Memformat perangkat USB '${perangkat_usb}'...${r}"
+	# Menghapus semua signature filesystem dan partition table
+	wipefs -a "${perangkat_usb}" &>/dev/null
+	echo -e "${b}[*] ${p}Memformat perangkat USB...${r}"
 	sleep 3
-	wipefs -a "${perangkat_usb}"
-	mkfs.vfat -F 32 "${perangkat_usb}" -n BOOTABLE
+	mkfs.ext4 -L BOOTABLE "${perangkat_usb}"
 	if [[ $? -eq 0 ]]; then
-		echo -e "${h}[+] ${p}Perangkat USB '${perangkat_usb}' berhasil diformat.${r}"
+		echo -e "${h}[+] ${p}Perangkat USB berhasil diformat.${r}"
 	else
-		echo -e "${m}[-] ${p}Gagal memformat perangkat USB '${perangkat_usb}'.${r}"
+		echo -e "${m}[-] ${p}Gagal memformat perangkat USB.${r}"
 		exit 1
 	fi
-	echo -e "${b}[*] ${p}Memulai proses flashing ISO '${file_iso}' ke perangkat USB '${perangkat_usb}'...${r}"
+	echo -e "${b}[*] ${p}Memulai proses flashing ISO ke perangkat USB...${r}"
 	sleep 3
 	pv "${file_iso}" | dd of="${perangkat_usb}" bs=4M oflag=sync
 	if [[ $? -eq 0 ]]; then
-		echo -e "${h}[+] ${p}Proses flashing selesai.${r}"
-		echo -e "${b}[*] ${p}Meng-eject perangkat USB '${perangkat_usb}'...${r}"
+		echo -e "${h}[+] ${p}Proses flashing ISO ke perangkat USB selesai.${r}"
+		echo -e "${b}[*] ${p}Meng-eject perangkat USB...${r}"
 		sleep 3
 		eject "${perangkat_usb}"
 		if [[ $? -eq 0 ]]; then
-    			echo -e "${h}[+] ${p}Perangkat USB '${perangkat_usb}' berhasil di-eject.${r}"
+    			echo -e "${h}[+] ${p}Perangkat USB berhasil di-eject.${r}"
 		else
-    			echo -e "${m}[-] ${p}Gagal meng-eject perangkat USB '${perangkat_usb}'.${r}"
+    			echo -e "${m}[-] ${p}Gagal meng-eject perangkat USB.${r}"
     			exit 1
 		fi
 		echo -e "${h}[+] ${p}Bootable USB berhasil dibuat dan siap digunakan.${r}"
@@ -172,7 +185,7 @@ function buat_bootable(){
 		echo -e "${b}[*] ${p}Terima kasih telah menggunakan ${program} :)${r}"
 		exit 0
 	else
-		echo -e "${m}[-] ${p}Gagal melakukan flashing ISO '${file_iso}' ke perangkat USB '${perangkat_usb}'.${r}"
+		echo -e "${m}[-] ${p}Gagal melakukan flashing ISO ke perangkat USB.${r}"
 	        exit 1
 	fi
 
